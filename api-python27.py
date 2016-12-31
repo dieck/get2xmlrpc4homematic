@@ -42,7 +42,7 @@ if (channel < 1 or channel > 50):
 press = form.getvalue("press")
 if (not press):
   press = "PRESS_SHORT";
-if (not (press == "PRESS_SHORT" or press == "LONG_PRESS")):
+if (not (press == "PRESS_SHORT" or press == "PRESS_LONG")):
   press = "PRESS_SHORT";    
 
 protocol = form.getvalue("protocol")
