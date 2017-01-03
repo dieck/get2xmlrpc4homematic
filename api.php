@@ -20,6 +20,16 @@ $press = $_REQUEST["press"];
 if (!$press) $press = "PRESS_SHORT";
 if (!(($press == "PRESS_SHORT") or ($press == "PRESS_LONG"))) $press = "PRESS_SHORT";
 
+// ifttt {{EnteredOrExited}} handling
+$eoe = $_REQUEST["enterlong"];
+if ($eoe == "entered") $press = "PRESS_LONG";
+if ($eoe == "exited") $press = "PRESS_SHORT";
+
+$eoe = $_REQUEST["entershort"];
+if ($eoe == "entered") $press = "PRESS_SHORT";
+if ($eoe == "exited") $press = "PRESS_LONG";
+
+
 $protocol = $_REQUEST["protocol"];
 if (!$protocol) $protocol = "http";
 if (!(($protocol == "http") or ($protocol == "https"))) $protocol = "http";

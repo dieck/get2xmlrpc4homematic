@@ -78,6 +78,18 @@ press
 *	accepted values: PRESS_LONG & PRESS_SHORT
 *	defaults to PRESS_SHORT if unset or unaccepted value
 
+enterlong
+*	Handles IFTTT {{EnteredOrExited}} variable
+*	optional, overwrites "press" variable usage
+*	accepted values: entered, exited
+*	sets PRESS_SHORT for "entered" and PRESS_LONG for "exited"
+
+entershort
+*	Handles IFTTT {{EnteredOrExited}} variable
+*	optional, overwrites "press" and "enterlong" usage
+*	accepted values: entered, exited
+*	sets PRESS_SHORT for "entered" and PRESS_LONG for "exited"
+
 debug
 *	Output parameters to user
 *	optional

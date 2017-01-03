@@ -45,6 +45,20 @@ if (not press):
 if (not (press == "PRESS_SHORT" or press == "PRESS_LONG")):
   press = "PRESS_SHORT";    
 
+# ifttt {{EnteredOrExited}} handling
+eoe = form.getvalue("enterlong")
+if (eoe == "entered"):
+  press = "PRESS_LONG"
+if (eoe == "exited"):
+  press = "PRESS_SHORT"
+
+eoe = form.getvalue("entershort")
+if (eoe == "entered"):
+  press = "PRESS_SHORT"
+if (eoe == "exited"):
+  press = "PRESS_LONG"
+
+
 protocol = form.getvalue("protocol")
 if (not protocol):
   protocol = "http";
