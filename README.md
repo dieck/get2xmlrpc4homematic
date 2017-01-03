@@ -100,3 +100,13 @@ example usage:
 `http://my.web.server/some/path/api.php?homematic=my.dyndns.adress&channel=21`
 
 will create an XMLRPC call to `http://my.dyndns.address:2001` triggering `BidCoS-RF:21` with `PRESS_SHORT`
+
+Security note:
+==============
+
+When deploying the script, you can set the variable myHomematics at the top of the script to allow only specific HomeMatic target addresses.
+This way, your server cannot be used as a proxy for connecting to arbritary IP address and ports, e.g. to take part in an DoS attack, if someone would take notice of the script.
+
+Usage is recommended.
+
+

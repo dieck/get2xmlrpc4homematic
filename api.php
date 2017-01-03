@@ -1,10 +1,21 @@
 <?php
 
+// if set: will only allow homematic parameters from these
+$myHomematics = array(
+  // "my.dyndns.adress",
+  // "111.222.33.44", // my fixed IP address
+);
+
+
+// no user-serviceable parts below
+
 header("Content-type: text/plain");
 
 $homematic = $_REQUEST["homematic"];
 if (!$homematic) die("ERR: No HomeMatic address");
 if (!preg_match('/^\w+[\w\.\-]*\w+$/', $homematic)) die("ERR: Invalid HomeMatic address");
+
+if (is_array($myHomematics)) if (!empty($myHomematics)) if (!in_array($homematic, $myHomematics)) die("ERR: Unknown HomeMatic address");
 
 $port = $_REQUEST["port"];
 if (!$port) $port = 2001;

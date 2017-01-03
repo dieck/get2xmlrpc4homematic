@@ -1,6 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-# enable debugging
 
+
+# if set: will only allow homematic parameters from these
+myHomematics = [
+#     "my.dyndns.adress",
+#     "111.222.33.44", # my fixed IP address
+];
+    
+    
+# no user-serviceable parts below
+    
+    
+
 import xmlrpclib
 import cgi
 import re
@@ -17,10 +29,15 @@ if (not homematic):
 if (not re.match('^\w+[\w\.\-]*\w+$', homematic)):
   print "ERR: Invalid HomeMatic address"
   sys.exit()
+if isinstance(myHomematics, list):
+  if myHomematics:
+    if homematic not in myHomematics:
+      print "ERR: Unknown HomeMatic address"
+      sys.exit()
 
 port = form.getvalue("port")
 if (not port):
-  port = 2001
+  port = str(2001)
 if (not re.match('^\d+$', port)):
   port = 2001
 port = int(port)
